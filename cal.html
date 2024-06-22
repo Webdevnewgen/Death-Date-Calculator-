@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Death Date Calculator</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('909.jpg');
+    background-size: cover;
+    background-repeat:  no-repeat;
+    margin: 0;
+    padding: 0;
+    background-color: ;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: grey;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: red;
+    font-size: 200px;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    font-size: 100px;
+    color:red;
+    
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 100px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:100px;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 100px;
+    color:red;
+}
+</style>
+</head>
+<body>
+<div class="">
+    <h1>Death Date Calculator</h1>
+    <label for="birthDate">Enter Your Birth Date:</label>
+    <input type="date" id="birthDate">
+    <button onclick="calculateDeathDate()">Calculate Death Date</button>
+    <div id="result"></div>
+</div>
+<script>
+function calculateDeathDate() {
+    const birthDate = new Date(document.getElementById('birthDate').value);
+    const today = new Date();
+    const ageInMilliseconds = today - birthDate;
+    const ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365);
+    
+    const deathDate = new Date(today.getFullYear() + (100 - ageInYears), today.getMonth(), today.getDate());
+    
+    const resultElement = document.getElementById('result');
+    resultElement.innerHTML = `Your death date is: ${deathDate.toDateString()}`;
+}
+</script>
+</body>
+</html>
